@@ -145,7 +145,7 @@ hr.intro-divider {
 /*section 2*/
 .content-section-a {
     padding: 50px 0;
-    background: url('http://karenraelevine.com/images/about%20me%20background.jpg') no-repeat center center fixed;
+    background: url("./files/images/about me.jpg") no-repeat center center fixed;
     background-size: cover;
     height: 855px;
 }
@@ -205,7 +205,7 @@ h2.section-heading {
 /* Portfolio section*/
 section {
   color: black;
-  background: url('http://dariocosta.net/images/3header-background.jpg') no-repeat center center fixed;
+  background: url("./files/images/portfolio.jpg") no-repeat center center fixed;
   background-size: cover;
 }
 
@@ -333,7 +333,7 @@ section {
 
 .banner {
     padding: 100px 0;
-    background: url('http://iyafp.org/wp-content/uploads/2014/05/BannerImages4_Contact.jpg') no-repeat center center fixed;
+    background: url("./files/images/contact.jpg") no-repeat center center fixed;
     background-size: cover;
     height: 755px;
   /*https://static1.squarespace.com/static/565ac72fe4b0e19717123069/568d18422399a30df621f447/568d184205f8e2af802ec492/1452087364610/ContactMe-1200x480.jpg?format=2500w*/
