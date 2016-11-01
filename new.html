@@ -13,26 +13,81 @@
 	    
 	    <title>Mandeep Kundal</title>
 	    <!--Bootstrap Link-->
-	    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	    <!--<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
 		<!--jQuery Library-->
 	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 	    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 	    <!--Google Font-->
-	    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+	    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+	    <!--Font Awesome-->
+    	<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	    <!--CSS File Link-->
 	    <link rel="stylesheet" type="text/css" href="new.css">
 	</head>
 
-	<body>
+	<body id="page-top">
 		
-		<!--Top Navbar-->
-		<nav class="navbar navbar-fixed-top">
-			
-		</nav>
+		<!--Collapsible Navbar-->
+		<div class="container">
+			<nav class="navbar navbar-fixed-top navbar-default" role="navigation">
+				<div class="container-fluid">
+					
+					<!--For smaller screen size-->
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+ 
+				      	<!-- For screen readers -->
+				        <span class="sr-only">Toggle Nav-Bar</span><i class="fa fa-bars" aria-hidden="true"></i>
+				        </button>
+				 		
+				      	<!--"When I get a logo"
+				      	<a class="pull-left" href="#"><img src="logosm.png"></a> -->
+				      	<a class="navbar-brand page-scroll" href="#page-top">Mandeep Kundal | Web Developer</a>
+					</div>
 
+					<!--Navbar Content-->
+					<div class="navbar-collapse collapse" id="navbar-collapse-1">
+						<ul class="nav navbar-nav navbar-right">
+				            <li class="active"><a href="#home">Home<span class="sr-only">(current)</span></a></li>
+				            <li><a href="#about">About</a></li>
+				            <li><a href="#portfolio">Portfolio</a></li>
+				            <li><a href="#contact">Contact</a></li>
+				        </ul>
+					</div>
+
+				</div>
+			</nav>
+		</div>
+
+		<header>
+			<div class="header-content">
+				<div class="header-content-inner">
+					<h1 id="homeHeading">Welcome!</h1>
+					<hr>
+					<p>This is my page.</p>
+					<!--<a href="#about" class="btn btn-primary btn-xl page-scroll">See More</a>-->
+					<a href="#about" class="btn btn-circle page-scroll">
+                        <i class="fa fa-angle-double-down animated"></i>
+                    </a>
+				</div>
+			</div>
+		</header>
+
+		<section class="bg-primary" id="about">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-8 col-lg-offset-2 text-center">
+						<h2 class="section-heading"></h2>
+					</div>
+				</div>
+			</div>
+		</section>
+		
 		<!--Bootstrap and jQuery Scripts-->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
   		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
 	</body>
