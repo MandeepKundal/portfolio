@@ -3,16 +3,147 @@ body, html {
     height: 100%;
 }
 body{
-	font-family: 'Raleway', sans-serif;
+	font-family: 'Raleway', Arial, sans-serif;
+	-webkit-tap-highlight-color: #222222;
 } 
 h1, h2, h3, h4, h5, h6{
-	font-family: 'Raleway', sans-serif;
+	font-family: 'Raleway', Arial, sans-serif;
 	
 }
 
-.nameNavbar{
-	background: none;
-	padding-left: 10px;
+hr {
+  border-color: #F05F40;
+  border-width: 3px;
+  max-width: 50px;
+}
+
+a {
+  -webkit-transition: all 0.35s;
+  -moz-transition: all 0.35s;
+  transition: all 0.35s;
+  color: #F05F40;
+}
+a:hover,
+a:focus {
+  color: #eb3812;
+}
+p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.bg-primary {
+  background-color: #F05F40;
+}
+.bg-dark {
+  background-color: #222222;
+  color: white;
+}
+.text-faded {
+  color: rgba(255, 255, 255, 0.7);
+}
+section {
+  padding: 100px 0;
+}
+aside {
+  padding: 50px 0;
+}
+.no-padding {
+  padding: 0;
+}
+ /*Navbar*/
+.navbar-default {
+  background-color: white;
+  border-color: rgba(34, 34, 34, 0.05);
+  font-family: 'Raleway', Arial, sans-serif;
+  -webkit-transition: all 0.35s;
+  -moz-transition: all 0.35s;
+  transition: all 0.35s;
+}
+.navbar-default .navbar-header .navbar-brand {
+  color: #F05F40;
+  font-family: 'Raleway', Arial, sans-serif;
+  font-weight: 700;
+  
+}
+.navbar-default .navbar-header .navbar-brand:hover,
+.navbar-default .navbar-header .navbar-brand:focus {
+  color: #eb3812;
+}
+.navbar-default .navbar-header .navbar-toggle {
+  font-weight: 700;
+  font-size: 12px;
+  color: #222222;
+  
+}
+.navbar-default .nav > li > a,
+.navbar-default .nav > li > a:focus {
+  
+  font-weight: 700;
+  font-size: 13px;
+  color: #222222;
+}
+.navbar-default .nav > li > a:hover,
+.navbar-default .nav > li > a:focus:hover {
+  color: #F05F40;
+}
+.navbar-default .nav > li.active > a,
+.navbar-default .nav > li.active > a:focus {
+  color: #F05F40 !important;
+  background-color: transparent;
+}
+.navbar-default .nav > li.active > a:hover,
+.navbar-default .nav > li.active > a:focus:hover {
+  background-color: transparent;
+}
+@media (min-width: 768px) {
+  .navbar-default {
+    background-color: transparent;
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+  .navbar-default .navbar-header .navbar-brand {
+    color: rgba(255, 255, 255, 0.7);
+  }
+  .navbar-default .navbar-header .navbar-brand:hover,
+  .navbar-default .navbar-header .navbar-brand:focus {
+    color: white;
+  }
+  .navbar-default .nav > li > a,
+  .navbar-default .nav > li > a:focus {
+    color: rgba(255, 255, 255, 0.7);
+  }
+  .navbar-default .nav > li > a:hover,
+  .navbar-default .nav > li > a:focus:hover {
+    color: white;
+  }
+  .navbar-default.affix {
+    background-color: white;
+    border-color: rgba(34, 34, 34, 0.05);
+  }
+  .navbar-default.affix .navbar-header .navbar-brand {
+    color: #F05F40;
+    font-size: 14px;
+  }
+  .navbar-default.affix .navbar-header .navbar-brand:hover,
+  .navbar-default.affix .navbar-header .navbar-brand:focus {
+    color: #eb3812;
+  }
+  .navbar-default.affix .nav > li > a,
+  .navbar-default.affix .nav > li > a:focus {
+    color: #222222;
+  }
+  .navbar-default.affix .nav > li > a:hover,
+  .navbar-default.affix .nav > li > a:focus:hover {
+    color: #F05F40;
+  }
+}
+
+.fa-circle {
+	color: #F05F40; 
+}
+.fa-stack-1x{
+	color: #FFF;
 }
 /*.icon-bar{ 
 	background-color: #fff;
@@ -35,6 +166,7 @@ rgba(255, 255, 255, 0.5);
 color: #000;
 }
 */
+/*Header*/
 header{
 	position: relative;
 	width: 100%;
@@ -62,30 +194,29 @@ header .header-content .header-content-inner h1 {
 	margin-bottom: 0;
 	font-size: 30px;
 }
-hr {
-  border-color: #F05F40;
-  border-width: 3px;
-  max-width: 50px;
-}
-a {
-  -webkit-transition: all 0.35s;
-  -moz-transition: all 0.35s;
-  transition: all 0.35s;
-  color: #F05F40;
-}
-a:hover,
-a:focus {
-  color: #eb3812;
-}
-p {
-  font-size: 16px;
-  line-height: 1.5;
-  margin-bottom: 20px;
-}
-.navbar-default{
+
+.nameNavbar{
 	background: none;
-	
+	padding-left: 10px;
 }
+
+/*Section*/
+.section-heading {
+  margin-top: 0;
+}
+.service-box {
+  max-width: 400px;
+  margin: 50px auto 0;
+}
+@media (min-width: 992px) {
+  .service-box {
+    margin: 20px auto 0;
+  }
+}
+.service-box p {
+  margin-bottom: 0;
+}
+
 /*Button and its Animation*/
 .btn-circle {
   width: 60px;
@@ -150,4 +281,43 @@ p {
     -moz-transform: scale(1);
     transform: scale(1);
   }
+}
+
+/*Footer*/
+footer h3 {
+  margin-bottom: 30px;
+}
+footer .footer-above {
+  padding-top: 50px;
+}
+footer .footer-col {
+  margin-bottom: 5px;
+}
+footer .footer-below {
+  padding: 25px 0;
+}
+
+/*Footer btns*/
+.btn-social{
+	display: inline-block;
+  	width: 30px;
+  	height: 30px;
+  	border-radius: 100%;
+	border: 2px solid white;  
+}
+.btn-outline {
+  color: #F05F40;
+  font-size: 20px;
+  border: solid 2px #F05F40;
+  background: transparent;
+  transition: all 0.3s ease-in-out;
+  margin-top: 15px;
+}
+.btn-outline:hover,
+.btn-outline:focus,
+.btn-outline:active,
+.btn-outline.active {
+  color: white;
+  background: #F05F40;
+  border: solid 2px #F05F40;
 }
