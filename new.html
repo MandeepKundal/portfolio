@@ -30,7 +30,7 @@
 		
 		<!--Collapsible Navbar-->
 		<div class="container">
-			<nav id="mainNav" class="navbar navbar-fixed-top navbar-default" role="navigation">
+			<nav id="mainNav" class="navJ navbar navbar-fixed-top navbar-default" role="navigation">
 				<div class="container-fluid">
 					
 					<!--For smaller screen size-->
@@ -49,7 +49,7 @@
 					<!--Navbar Content-->
 					<div class="navbar-collapse collapse" id="navbar-collapse-1">
 						<ul class="nav navbar-nav navbar-right">
-				            <li class="active"><a class="page-scroll" href="#page-top">Home<span class="sr-only">(current)</span></a></li>
+				            <!--<li class="active"><a class="page-scroll" href="#page-top">Home<span class="sr-only">(current)</span></a></li>-->
 				            <li><a class="page-scroll" href="#about">About</a></li>
 				            <li><a class="page-scroll" href="#portfolio">Portfolio</a></li>
 				            <li><a class="page-scroll" href="#contact">Contact</a></li>
@@ -138,7 +138,7 @@
 			
 		</section>
 		
-		<footer class="text-center">
+		<footer class="text-center" id="contact">
 			
 			<div class="container">
 				<div class="row">
@@ -185,9 +185,37 @@
 			
 		</footer>
 
+		<!--jQuery Script-->
+		<script type="text/javascript">
+			var a = $(".navJ").offset().top;
+			$(document).scroll(function(){
+			    if($(this).scrollTop() > a)
+			    {   
+			       $('.navJ').css({"background":"#FFF"});
+			       $('.page-scroll').css({"color":"#F05F40"});
+
+			    } else {
+			       $('.navJ').css({"background":"transparent"});
+			       $('.page-scroll').css({"color":"#FFF"});
+			    }
+			});
+			/*$("#navbar-collapse-1 li").hover(function(){
+				$(this).css("color","#000");
+			});
+			
+			$(document).scroll(function(){
+				$('.page-scroll').hover(
+			       		function(){
+			       			$(this).css("color","#000");
+			       		}
+			       		function(){
+			       			$(this).css("color","#F05F40");
+			       		}
+			       	);
+			}); */
+		</script>
 		<!--Bootstrap and jQuery Scripts-->
 		<script src="js/bootstrap.min.js"></script>
-		<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
   		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
 	</body>

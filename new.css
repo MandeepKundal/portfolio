@@ -53,7 +53,7 @@ aside {
   padding: 0;
 }
  /*Navbar*/
-.navbar-default {
+ .navbar-default {
   background-color: white;
   border-color: rgba(34, 34, 34, 0.05);
   font-family: 'Raleway', Arial, sans-serif;
@@ -139,33 +139,14 @@ aside {
   }
 }
 
+/*Font Awesome icons*/
 .fa-circle {
 	color: #F05F40; 
 }
 .fa-stack-1x{
 	color: #FFF;
 }
-/*.icon-bar{ 
-	background-color: #fff;
-}
-.topnav {
-    font-size: 15px;
-    border-bottom: 1px outset rgba(192, 192, 192, 0.5);
-    background: none rgba(192, 192, 192, 0.9);
-    box-shadow: 0px 1px rgba(0, 0, 0, 0.3);
-}
-.topnav ul.navbar-nav li a {
-background: rgba(28, 28, 28, 0.1);
-color: #000;
-}
-.topnav ul.navbar-nav li a:hover,
-.topnav ul.navbar-nav li a:focus
- {
-background: #7CB9E8; Aero - rgb(124,185,232)
-rgba(255, 255, 255, 0.5);
-color: #000;
-}
-*/
+
 /*Header*/
 header{
 	position: relative;
