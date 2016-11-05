@@ -198,6 +198,13 @@ header .header-content .header-content-inner h1 {
   margin-bottom: 0;
 }
 
+/*Portfolio*/
+.workImg{
+	height: 100%;
+	width: 100%;
+	object-fit: contain;
+}
+
 /*Button and its Animation*/
 .btn-circle {
   width: 60px;
