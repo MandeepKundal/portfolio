@@ -16,6 +16,9 @@ hr {
   border-width: 3px;
   max-width: 50px;
 }
+hr.light {
+  border-color: white;
+}
 
 a {
   -webkit-transition: all 0.35s;
@@ -200,9 +203,17 @@ header .header-content .header-content-inner h1 {
 
 /*Portfolio*/
 .workImg{
-	height: 100%;
-	width: 100%;
-	object-fit: contain;
+	height: 180px;
+	width: 300px;
+	object-fit: fill;
+}
+
+.portfolio-box {
+  position: relative;
+  display: block;
+  max-width: 650px;
+  margin: 0 auto;
+  overflow: hidden;
 }
 
 /*Button and its Animation*/
