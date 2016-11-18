@@ -160,7 +160,7 @@ header{
 	background-size: cover;
 	-o-background-size: cover;
 	background-position: center;
-	background-image: url('./files/images/cup of coffee.jpg');
+	background-image: url('./files/images/cup_of_coffee.jpg');
 	text-align: center;
 	color: white; 
 	height: 600px;
@@ -182,6 +182,12 @@ header .header-content .header-content-inner h1 {
 .nameNavbar{
 	background: none;
 	padding-left: 10px;
+}
+
+.img-circle{
+  
+  border: 1px outset rgb(255,255,255);
+  
 }
 
 /*Section*/
