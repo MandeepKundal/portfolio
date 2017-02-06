@@ -1,0 +1,57 @@
+body, html {
+    width: 100%;
+    height: 100%;
+}
+body{
+  font-family: 'Raleway', Arial, sans-serif;
+  -webkit-tap-highlight-color: #222222;
+} 
+h1, h2, h3, h4, h5, h6{
+  font-family: 'Raleway', Arial, sans-serif;
+}
+
+h4 {
+  font-style: italic;
+  font-weight: bold;
+}
+
+hr {
+  border-color: #F05F40;
+  border-width: 3px;
+  max-width: 50px;
+}
+
+/*Section*/
+section {
+  padding: 100px;
+}
+.main {
+  padding: 25px 150px 0 150px;
+}
+.footer {
+  padding: 25px;
+}
+.fa-3x {
+  color: #F05F40;
+}
+.myName {
+  color: #F05F40;
+}
+
+/*Buttons*/
+.btn-outline {
+  color: #F05F40;
+  font-size: 20px;
+  border: solid 2px #F05F40;
+  background: transparent;
+  transition: all 0.3s ease-in-out;
+  margin-top: 15px;
+}
+.btn-outline:hover,
+.btn-outline:focus,
+.btn-outline:active,
+.btn-outline.active {
+  color: white;
+  background: #F05F40;
+  border: solid 2px #F05F40;
+}
