@@ -1,0 +1,252 @@
+<html lang="en">
+	
+	<head>
+		<meta charset="utf-8">
+	    <!--For Search Engines-->
+	    <meta name="description" content="This is a local weather app">
+	    <meta name="keyword" content="mandeep kundal, local, weather, temperature, wind speed">
+	    <meta name="robots" content="index, follow">
+	    <meta name="author" content="Mandeep Kundal">
+
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+	    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	    
+	    <title>Local Weather App</title>
+	    <!--Bootstrap Link-->
+	    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	    <!--jQuery Library-->
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+	    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+	    <!--Google Font-->
+	    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+	    <!--Font Awesome-->
+    	<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    	<!--Weather Icons-->
+    	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css">
+	    <!--CSS File Link-->
+	    <link rel="stylesheet" type="text/css" href="local_weather.css">
+	</head>
+
+	<body>
+		
+		<section class="text-center">
+			
+			<div class="container-fluid">
+				<h1>Local Weather</h1>
+				<hr>
+				<div class="row location">
+					<div class="col-lg-6">
+						<h3 id="city"></h3>
+						<h3 id="country"></h3>
+					</div>
+					<div class="col-lg-6">
+						<h3 id="date"></h3>
+						<h3 id="day"></h3>
+					</div>
+					
+				</div>
+				<div class="row temperature">
+					<div class="col-lg-6">
+						<h3 id="temp"></h3>
+						<h3 class="icon"></h3>
+						<h3 id="description"></h3>
+						<h3 id="tempMin"></h3>
+						<h3 id="tempMax"></h3>
+						
+					</div>
+					<div class="col-lg-6">
+						<h3 id="windDeg"></h3>
+						<h3 id="wind"></h3>
+						<h3 id="pressure"></h3>
+						<h3 id="clouds"></h3>
+						<h3 id="humidity"></h3>	
+					</div>
+				</div>
+				
+				<hr>
+				<div class="footer">
+                	<h5 align="middle">Coded by: <a href="https://www.freecodecamp.com/mandeepkundal" target="_blank" class="myName"><i>Mandeep Kundal</i></a></h5>
+                </div>
+            </div>
+			
+		</section>
+
+		<!--jQuery Script-->
+		<script>
+		  	$(document).ready(function() {
+
+		  		//Getting the current date
+		  		var monthNames = [ "January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December" ];
+				function init(){
+					var date = new Date();
+			  		$('#date').text(monthNames[date.getMonth()]+' '+date.getDate()+', '+date.getFullYear());
+			  		var day = date.getDay();
+			  		getCurrentDay(day);
+			  		function getCurrentDay(val){
+			  			switch(val){
+			  				case 0:
+			  				return $('#day').text("Sunday");
+			  				break;
+			  				case 1:
+			  				return $('#day').text("Monday");
+			  				break;
+			  				case 2:
+			  				return $('#day').text("Tueday");
+			  				break;
+			  				case 3:
+			  				return $('#day').text("Wednesday");
+			  				break;
+			  				case 4:
+			  				return $('#day').text("Thursday");
+			  				break;
+			  				case 5:
+			  				return $('#day').text("Friday");
+			  				break;
+			  				default :
+			  				return $('#day').text("Saturday");
+			  				
+			  			}
+			  		}
+			  	}
+			  	init();
+		  		
+		  		//Calling the current location of the user using IP-API
+		  		var location_api="http://ip-api.com/json";
+		  		$.getJSON(location_api, function(loc){
+		  			var lat = loc.lat;
+		  			var lon = loc.lon;
+		  			var city = loc.city;
+		  			var region = loc.region;
+			  		var country = loc.country;
+			  			
+
+		  			//Calling the API as per user's location from Open Weather API
+			  		var weather_api="http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=b4c11335609f0a5a6382757231a5061d&units=metric";
+			  		$.getJSON(weather_api, function(data){
+			  			var tempC = Math.floor(data.main.temp);
+			  			var tempMinC = Math.floor(data.main.temp_min);
+			  			var tempMaxC = Math.floor(data.main.temp_max);
+			  			//Converting temperature in C to F
+			  			var tempF = Math.floor(tempC * (9/5) + 32);
+			  			var tempMinF = Math.floor(tempMinC * (9/5) + 32);
+			  			var tempMaxF = Math.floor(tempMaxC * (9/5) + 32);
+			  			var tempSwap = false;
+			  			var wind = (data.wind.speed).toFixed(0);
+			  			//Converting wind speed to miles/hour
+			  			var windMh = (2.237*wind).toFixed(0);
+			  			var pressure = data.main.pressure;
+			  			var description = data.weather[0].description;
+			  			var humidity = data.main.humidity;
+			  			var windDeg = data.wind.deg;
+			  			var clouds = data.clouds.all;
+			  			
+			  			$('#city').text(city + ", " + region);
+				  		$('#country').text(country);
+				  		$('#temp').html(tempC+" <i style='color:#C51718'>&#8451;</i>");
+				  		$('#tempMin').html(tempMinC+" &#8451;  "+'<i class="fa fa-thermometer-empty"></i>');
+				  		$('#tempMax').html(tempMaxC+" &#8451;  "+'<i class="fa fa-thermometer-full"></i>');
+				  		$('#wind').text(wind+" m/s");
+				  		$('#pressure').text(pressure+" hPa");
+				  		$('#description').text(description);
+				  		$('#humidity').html(humidity+"% Humidity");
+				  		$('#windDeg').html(windDeg+"&deg; ");
+				  		$('#clouds').html(clouds+"% Clouds");
+				  		
+				  		//To switch between measuring units
+				  		$('#temp').click(function(){
+				  			if (tempSwap === false) {
+				  				$('#temp').html(tempF+" <i style='color:#C51718'>&#8457;</i>");
+				  				$('#tempMin').html(tempMinF+" &#8457;  "+'<i class="fa fa-thermometer-empty"></i>');
+				  				$('#tempMax').html(tempMaxF+" &#8457;  "+'<i class="fa fa-thermometer-full"></i>');
+				  				$('#wind').text(windMh+" mph");
+				  				tempSwap = true;
+				  			}
+				  			else{
+				  				$('#temp').html(tempC+" <i style='color:#C51718'>&#8451;</i>");
+				  				$('#tempMin').html(tempMinC+" &#8451;  "+'<i class="fa fa-thermometer-empty"></i>');
+				  				$('#tempMax').html(tempMaxC+" &#8451;  "+'<i class="fa fa-thermometer-full"></i>');
+				  				$('#wind').text(wind+" m/s");
+				  				tempSwap = false;
+				  			}
+				  		});
+
+				  		//To display weather icon as per the local weather conditions
+				  		var icon = data.weather[0].icon;
+				  		getWeatherIcon(icon);
+				  		function getWeatherIcon(id){
+						  switch(id){
+						    case "01d":
+						      return $('.icon').html("<i class='wi wi-day-sunny'></i>");
+						      break;
+						    case "01n":
+						      return $('.icon').html("<i class='wi wi-night-clear'></i>");
+						      break;
+						    case "02d":
+						      return $('.icon').html("<i class='wi wi-day-cloudy'></i>");
+						      break;
+						    case "02n":
+						      return $('.icon').html("<i class='wi wi-night-alt-cloudy'></i>");
+						      break;
+						    case "03d":
+						      return $('.icon').html("<i class='wi wi-day-cloudy'></i>");
+						      break;
+						    case "03n":
+						      return $('.icon').html("<i class='wi wi-night-alt-cloudy'></i>");
+						      break;
+						    case "04d":
+						      return $('.icon').html("<i class='wi wi-day-cloudy'></i>");
+						      break;
+						    case "04n":
+						      return $('.icon').html("<i class='wi wi-night-alt-cloudy'></i>");
+						      break;
+						    case "09d":
+						      return $('.icon').html("<i class='wi wi-day-showers'></i>");
+						      break;
+						    case "09n":
+						      return $('.icon').html("<i class='wi wi-night-alt-showers'></i>");
+						      break;
+						    case "10d":
+						      return $('.icon').html("<i class='wi wi-day-rain'></i>");
+						      break;
+						    case "10n":
+						      return $('.icon').html("<i class='wi wi-night-alt-rain'></i>");
+						      break;
+						    case "11d":
+						      return $('.icon').html("<i class='wi wi-day-thunderstorm'></i>");
+						      break;
+						    case "11n":
+						      return $('.icon').html("<i class='wi wi-night-alt-thunderstorm'></i>");
+						      break;
+						    case "13d":
+						      return $('.icon').html("<i class='wi wi-day-snow'></i>");
+						      break;
+						    case "13n":
+						      return $('.icon').html("<i class='wi wi-night-alt-snow'></i>");
+						      break;
+						    case "50d":
+						     return $('.icon').html("<i class='wi wi-day-fog'></i>");
+						      break;
+						    case "50n":
+						      return $('.icon').html("<i class='wi wi-night-fog'></i>");
+						      break;
+						    default:
+						      return $('.icon').html("<i class='wi wi-day-clear'></i>");
+						  }
+						}
+							
+			  		});
+		  		});
+
+		  		
+		  	});
+		</script>
+
+		<!--Bootstrap and jQuery Scripts-->
+		<script src="js/bootstrap.min.js"></script>
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+	</body>
+
+</html>
+
