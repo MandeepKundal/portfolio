@@ -87,7 +87,7 @@
       
       <div class="container">
       
-        <h1>Get in touch!</h1>
+        <h1 class="text-center">Get in touch!</h1><br><br>
       
         <div id="error"><? echo $error.$successMessage; ?></div>
       
