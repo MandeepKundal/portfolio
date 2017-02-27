@@ -87,7 +87,7 @@
       
       <div class="container">
       
-        <h1 class="text-center">Get in touch!</h1><br><br>
+        <h1>Get in touch!</h1><br>
       
         <div id="error"><? echo $error.$successMessage; ?></div>
       
@@ -95,7 +95,7 @@
           <fieldset class="form-group">
             <label for="email">Email address</label>
             <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
-            <small class="text-muted">Your email will never be shared with anyone else.</small>
+            <small class="text-muted">Your email address will never be disclosed.</small>
           </fieldset>
           <fieldset class="form-group">
             <label for="subject">Subject</label>
