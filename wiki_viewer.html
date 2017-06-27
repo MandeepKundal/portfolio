@@ -1,0 +1,97 @@
+<html lang="en">
+	
+	<head>
+		<meta charset="utf-8">
+	    <!--For Search Engines-->
+	    <meta name="description" content="This is a Wikipedia Viewer page that lets user search for any article present on Wikipedia">
+	    <meta name="keyword" content="mandeep kundal, Wikipedia, article, search">
+	    <meta name="robots" content="index, follow">
+	    <meta name="author" content="Mandeep Kundal">
+
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+	    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	    
+	    <title>Wikipedia Viewer</title>
+	    <!--Bootstrap Link-->
+	    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	    <!--jQuery Library-->
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+	    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+	    <!--Google Font-->
+	    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+	    <!--Font Awesome-->
+    	<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	    <!--CSS File Link-->
+	    <link rel="stylesheet" type="text/css" href="wiki_viewer.css">
+	</head>
+
+	<body>
+		
+		<section class="text-center">
+			
+			<div class="container-fluid">
+				<a href="https://en.wikipedia.org/" target="_blank"><img src="./files/images/wiki_mainlogo.png"></a>
+				<h1>Wikipedia Viewer</h1>
+				<h5>Search for any article</h5>
+				<hr>
+				<div class="container">
+					<input class="form-control" id="searchArticle" placeholder="Search here to see a list of related articles on Wikipedia">
+				</div>
+				<button type="button" id="search" class="btn btn-outline"><i class="fa fa-search fa-md"></i> &nbsp;Search</button>
+				<a class="btn btn-outline" href="http://en.wikipedia.org/wiki/Special:Random" target="_blank"><i class="fa fa-gift fa-md"></i> &nbsp;Surprise Me!</a>
+				<div id="output">
+				</div>
+				
+				<div class="footer">
+                	<h5 align="middle">Coded by: <a href="https://www.freecodecamp.com/mandeepkundal" target="_blank" class="myName"><i>Mandeep Kundal</i></a></h5>
+                </div>
+            </div>
+			
+		</section>
+
+		<!--jQuery Script-->
+		<script>
+		  	$(document).ready(function() {
+		  		//When the search button is clicked
+		  		$("#search").click(function(){
+		  			//Gets the input from user
+		  			var searchArticle = $("#searchArticle").val();
+		  			//Wikipedia API URL
+		  			var url = "https://en.wikipedia.org/w/api.php?action=opensearch&search="+ searchArticle +"&format=json&callback=?";
+		  			
+		  			$.ajax({
+		  				type:"GET",
+		  				url:url,
+		  				async:false,
+		  				dataType:"json",
+		  				success: function(data) {
+		  					$("#output").html('');
+		  					for (var i = 0; i < data[i].length; i++) {
+		  						$("#output").append("<a href="+ data[3][i] +" target='_blank'><div class='result'><h4>"+ data[1][i] +"</h4><p>"+ data[2][i] +"</p></div></a>");
+		  					}
+		  					//To clear the input typed by user after it is searched
+		  					$("#searchArticle").val('');	
+		  				},
+		  				error: function(errorMessage) {
+		  					alert("Error occured");
+		  				}
+		  			});
+		  		});
+		  		//To search for articles when user presses the enter key
+	  			$("#searchArticle").keypress(function(e) {
+	  				if (e.which==13) {
+	  					$("#search").click();
+	  				}
+	  			});
+		  	});
+		</script>
+
+		<!--Bootstrap and jQuery Scripts-->
+		<script src="js/bootstrap.min.js"></script>
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+	</body>
+
+</html>
+
