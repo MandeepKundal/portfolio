@@ -4,7 +4,13 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Search Movies</title>
+		<!-- Bootstrap Link -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+		<!--jQuery Library-->
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	    <!-- Customized Bootstrap -->
 		<link rel="stylesheet" type="text/css" href="https://bootswatch.com/united/bootstrap.min.css">
+		<!-- Style Sheet -->
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 	</head>
 
@@ -19,18 +25,63 @@
 
 		<div class="container">
 			<div class="jumbotron">
-				<h3 class="text-center">Find Any Movie</h3>
+				<h3 class="text-center">Search for your Movie</h3>
 				<form id="searchForm">
-					<input type="text" class="form-control" id="searchText" placeholder="Search the movie title here">
+					<input type="text" class="form-control" id="searchText" placeholder="Type the movie title here">
 				</form>
+				<br>
+				<div id="carouselSlides" class="carousel slide" data-ride="carousel">
+				  <div class="carousel-inner" role="listbox">
+				    <div class="carousel-item active">
+				      <img class="d-block img-fluid" src="./images/wonder_woman.jpg" alt="Wonder Woman">
+				    </div>
+				    <div class="carousel-item">
+				      <img class="d-block img-fluid" src="./images/the_godfather.jpg" alt="The Godfather">
+				    </div>
+				    <div class="carousel-item">
+				      <img class="d-block img-fluid" src="./images/the_dark_knight.jpg" alt="The Dark Knight">
+				    </div>
+				    <div class="carousel-item">
+				      <img class="d-block img-fluid" src="./images/pulp_fiction.jpg" alt="Pulp Fiction">
+				    </div>
+				    <div class="carousel-item">
+				      <img class="d-block img-fluid" src="./images/star_wars.jpg" alt="Star Wars">
+				    </div>
+				  </div>
+				</div>
 			</div>
 		</div>
 
-		<div class="container">
+		<div class="container allMovies">
 			<div id="movies" class="row"></div>
 		</div>
 
+		<div class="footer">
+			<div class="row">
+				<div class="col-md-7">
+					<h5 align="right"><i>This product uses the TMDb API but is not endorsed or certified by <a href="https://www.themoviedb.org/" target="_blank" class="myName">TMDb</i></a></h5>
+	    			<h5 align="right">Coded by: <a href="https://www.freecodecamp.com/mandeepkundal" target="_blank" class="myName"><i>Mandeep Kundal</i></a></h5>
+				</div>
+				<div class="col-md-5">
+					<a href="https://www.themoviedb.org/" target="_blank" class="myName"><img src="./images/tmdb_logo.png" align="left"></a>
+				</div>
+				
+			</div>
+	    </div>
+
+	    <!-- Bootstrap Script -->
+	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+		<!-- jQuery Script Tag -->
 		<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+		<!-- Running Carousel function on page load -->
+		<script type="text/javascript">
+			$document.ready(function(){
+				$('.carousel').carousel({
+					interval: 1000;
+				})
+			});
+		</script>
+		<!-- Axios Client Script Tag -->
 	    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	    <script src="js/main.js"></script>
 	</body>
